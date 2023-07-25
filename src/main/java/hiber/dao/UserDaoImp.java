@@ -32,7 +32,7 @@ public class UserDaoImp implements UserDao {
       TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery(
               "select u from User u, " +
                  "Car c where u.id = c.userId " +
-                      "and c.model = :model " +
+                      "and c.model like :model " +
                       "and c.series = :series")
               .setParameter("model", model)
               .setParameter("series", series);

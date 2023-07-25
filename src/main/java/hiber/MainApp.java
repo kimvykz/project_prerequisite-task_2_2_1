@@ -56,7 +56,7 @@ public class MainApp {
       }
 
 
-      List<User> usersByModSer = userService.listByModelSeries("Lada", 350);
+      List<User> usersByModSer = userService.listByModelSeries("%", 350);
       for (User user : usersByModSer) {
          System.out.println("Id = "+user.getId());
          System.out.println("First Name = "+user.getFirstName());
