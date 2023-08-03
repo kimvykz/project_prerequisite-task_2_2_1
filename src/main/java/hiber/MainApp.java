@@ -39,7 +39,7 @@ public class MainApp {
       userService.add(u1);
 
       u1 = new User("Kim", "Vyacheslav", "vya@gmail.com");
-      c1 = new Car("Lada", 350);
+      c1 = new Car("Lada", 300);
       u1.setCar(c1);
       c1.setUser(u1);
       userService.add(u1);
@@ -56,15 +56,14 @@ public class MainApp {
       }
 
 
-      List<User> usersByModSer = userService.listByModelSeries("%", 350);
-      for (User user : usersByModSer) {
+      User user = userService.findByModelSeries("%", 350);
+
          System.out.println("Id = "+user.getId());
          System.out.println("First Name = "+user.getFirstName());
          System.out.println("Last Name = "+user.getLastName());
          System.out.println("Email = "+user.getEmail());
          System.out.println("Car = " + user.getCar().getModel() + " " + user.getCar().getSeries());
          System.out.println();
-      }
 
       context.close();
    }

@@ -28,7 +28,7 @@ public class UserDaoImp implements UserDao {
       return query.getResultList();
    }
 
-   public List<User> listByModelSeries(String model, int series){
+   public User findByModelSeries(String model, int series){
       TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery(
               "select u from User u, " +
                  "Car c where u.id = c.userId " +
@@ -37,7 +37,7 @@ public class UserDaoImp implements UserDao {
               .setParameter("model", model)
               .setParameter("series", series);
 
-      return query.getResultList();
+      return query.getSingleResult();
    }
 
    public SessionFactory getSessionFactory() {
